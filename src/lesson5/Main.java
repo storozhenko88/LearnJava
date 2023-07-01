@@ -1,5 +1,7 @@
 package lesson5;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -18,6 +20,37 @@ public class Main {
             count++;
         }
 
+        calculator();
+    }
 
+    public static void calculator () {
+
+        Scanner scanner = new Scanner(System.in);
+        String choice = "no";
+
+        while (choice.equals("no")){
+            System.out.print("first number - ");
+            int firstNumber = scanner.nextInt();
+
+            System.out.print("choose '+ - / *' - ");
+            String character = scanner.next();
+
+            System.out.print("second number - ");
+            int secondNumber = scanner.nextInt();
+
+            switch (character) {
+                case "+" -> System.out.println(firstNumber + secondNumber);
+                case "-" -> System.out.println(firstNumber - secondNumber);
+                case "*" -> System.out.println(firstNumber * secondNumber);
+                case "/" -> {
+                    if (secondNumber != 0)
+                        System.out.println(firstNumber / secondNumber);
+                    else
+                        System.out.println("error");
+                }
+            }
+            System.out.println("exit? \nyes - enter 'yes'\nno - 'no'");
+            choice = scanner.next();
+        };
     }
 }
